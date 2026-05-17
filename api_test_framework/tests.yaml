@@ -1,0 +1,51 @@
+# tests.yaml – Define API test cases
+
+# Example: Testing a public echo service. Replace with your real API endpoints.
+
+- name: Echo GET request
+  method: GET
+  url: https://postman-echo.com/get?foo=bar
+  headers: {}
+  payload: {}
+  expected_status: 200
+  # Optional: JSON path assertions (key: expected value)
+  assertions:
+    args.foo: bar
+
+- name: Echo POST request with JSON body
+  method: POST
+  url: https://postman-echo.com/post
+  headers:
+    Content-Type: application/json
+  payload:
+    hello: world
+  expected_status: 200
+  assertions:
+    json.hello: world
+
+# --- Intentional failure cases for testing ---
+
+- name: "FAIL - Wrong expected status"
+  method: GET
+  url: https://postman-echo.com/get?test=fail
+  headers: {}
+  payload: {}
+  expected_status: 201   # actual is 200, so this should FAIL
+  assertions: {}
+
+- name: "FAIL - Wrong assertion value"
+  method: GET
+  url: https://postman-echo.com/get?color=red
+  headers: {}
+  payload: {}
+  expected_status: 200
+  assertions:
+    args.color: blue   # actual is "red", so this should FAIL
+
+- name: "FAIL - Non-existent endpoint"
+  method: GET
+  url: https://postman-echo.com/this-does-not-exist
+  headers: {}
+  payload: {}
+  expected_status: 200   # will get 404
+  assertions: {}
