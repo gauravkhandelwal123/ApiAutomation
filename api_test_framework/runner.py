@@ -88,15 +88,41 @@ def run_tests():
 
 
 def main():
+    start_time = datetime.now()
     results = run_tests()
+    end_time = datetime.now()
+    duration = end_time - start_time
+    
+    total = len(results)
+    passed = sum(1 for r in results if r["success"])
+    failed = total - passed
+    skipped = 0  # No explicit skip logic yet
+    
+    failures = [
+        {
+            "name": r["name"],
+            "error": r.get("details", {}).get("error", "Assertion failed or non-200 status")
+        } for r in results if not r["success"]
+    ]
+
+    stats = {
+        "total": total,
+        "passed": passed,
+        "failed": failed,
+        "skipped": skipped,
+        "duration_str": str(duration).split('.')[0],
+        "failures": failures
+    }
+
     # Generate report
-    report_path = report_generator.generate_report(results, config)
+    report_path = report_generator.generate_report(results, config, stats)
     print(f"Report generated: {report_path}")
-    # Optional email – skipped unless EMAIL_SETTINGS["enabled"] is True
+    
+    # Optional email – send on both success and failure
     if config.EMAIL_SETTINGS.get("enabled"):
         try:
-            from . import email_sender  # you may create this module later
-            email_sender.send_report(report_path, config)
+            import email_sender
+            email_sender.send_report(report_path, config, stats)
         except Exception as e:
             print(f"Failed to send email: {e}")
 

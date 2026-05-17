@@ -16,6 +16,10 @@ TEST_DEFINITIONS_PATH = BASE_DIR / "api_test_framework" / "tests.yaml"
 # Report format: "html" or "markdown"
 REPORT_FORMAT = "html"
 
+# Run details
+ENVIRONMENT = os.getenv("QA_ENV", "STAGING")
+BUILD_SHA = os.getenv("BUILD_SHA", "latest-build")
+
 # Email settings (optional). Set to None to disable email.
 EMAIL_SETTINGS = {
     "enabled": False,
