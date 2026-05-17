@@ -1,0 +1,258 @@
+
+    <!DOCTYPE html>
+    <html lang='en'>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>API Test Report – 20260517_154932</title>
+        <style>
+            body { background:#f0f2f5; margin:0; padding:20px; font-family:'Segoe UI', Tahoma, sans-serif; }
+            .container { max-width:1400px; margin:auto; background:white; border-radius:8px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+            a:hover { text-decoration: underline !important; }
+            tr:hover { filter: brightness(0.95); transition: 0.2s; }
+        </style>
+    </head>
+    <body>
+        <div class='container'>
+            
+    <div style="
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    ">
+        <h1 style="margin:0; font-size:2rem;">API Test Execution Report</h1>
+        <p style="margin:4px 0; font-size:1rem;">Generated on 2026-05-17 15:49:32</p>
+    </div>
+    
+            <br/>
+            <table style="width:100%; border-collapse:collapse; font-family: 'Segoe UI', Tahoma, sans-serif; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+        <thead>
+            <tr style='background:#333; color:white; text-transform: uppercase; font-size: 0.9em;'>
+                <th style='padding:12px; text-align:left; width:20%;'>Test Name</th>
+                <th style='padding:12px; text-align:left; width:8%;'>Method</th>
+                <th style='padding:12px; text-align:left; width:45%;'>URL</th>
+                <th style='padding:12px; text-align:left; width:10%;'>Result</th>
+                <th style='padding:12px; text-align:left; width:17%;'>Error / Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr style='background:#e8f5e9; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Review List - Valid Request</td>
+            <td style='padding:12px;'><strong>GET</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/review-list?limit=5' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/review-list?limit=5</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#4caf50'>PASS</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#e8f5e9; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Review List - Limit 1</td>
+            <td style='padding:12px;'><strong>GET</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/review-list?limit=1' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/review-list?limit=1</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#4caf50'>PASS</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#ffebee; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Review List - Invalid Limit Type</td>
+            <td style='padding:12px;'><strong>GET</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/review-list?limit=abc' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/review-list?limit=abc</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#f44336'>FAIL</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#e8f5e9; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Review List - No Limit Parameter</td>
+            <td style='padding:12px;'><strong>GET</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/review-list' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/review-list</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#4caf50'>PASS</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#ffebee; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Review List - Invalid HTTP Method (POST)</td>
+            <td style='padding:12px;'><strong>POST</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/review-list?limit=5' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/review-list?limit=5</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#f44336'>FAIL</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#e8f5e9; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Diamonds List - Valid Full Parameters</td>
+            <td style='padding:12px;'><strong>GET</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/diamond/diamonds?category=Lab-Grown%20Diamonds&client_id=null&shape=&price=&carat=&color=&cut=&clarity=&symmetry=&polish=&depth=&table=&fluorescence=&lwRatio=&certificate=&pair=&mediashipping=&page=1&pageSize=24&sortBy=priceLowToHigh&shippingOptions=exp&settingSku=' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/diamond/diamonds?category=Lab-Grown%20Diamonds&client_id=null&shape=&price=&carat=&color=&cut=&clarity=&symmetry=&polish=&depth=&table=&fluorescence=&lwRatio=&certificate=&pair=&mediashipping=&page=1&pageSize=24&sortBy=priceLowToHigh&shippingOptions=exp&settingSku=</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#4caf50'>PASS</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#ffebee; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Diamonds List - Missing Category</td>
+            <td style='padding:12px;'><strong>GET</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/diamond/diamonds?client_id=null&shape=&price=&carat=&color=&cut=&clarity=&symmetry=&polish=&depth=&table=&fluorescence=&lwRatio=&certificate=&pair=&mediashipping=&page=1&pageSize=24&sortBy=priceLowToHigh&shippingOptions=exp&settingSku=' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/diamond/diamonds?client_id=null&shape=&price=&carat=&color=&cut=&clarity=&symmetry=&polish=&depth=&table=&fluorescence=&lwRatio=&certificate=&pair=&mediashipping=&page=1&pageSize=24&sortBy=priceLowToHigh&shippingOptions=exp&settingSku=</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#f44336'>FAIL</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#ffebee; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Diamonds List - Invalid Page Size</td>
+            <td style='padding:12px;'><strong>GET</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/diamond/diamonds?category=Lab-Grown%20Diamonds&page=1&pageSize=-5' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/diamond/diamonds?category=Lab-Grown%20Diamonds&page=1&pageSize=-5</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#f44336'>FAIL</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#e8f5e9; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Diamonds List - Different Sort By</td>
+            <td style='padding:12px;'><strong>GET</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/diamond/diamonds?category=Lab-Grown%20Diamonds&page=1&pageSize=24&sortBy=priceHighToLow' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/diamond/diamonds?category=Lab-Grown%20Diamonds&page=1&pageSize=24&sortBy=priceHighToLow</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#4caf50'>PASS</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#ffebee; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Diamonds List - POST Method</td>
+            <td style='padding:12px;'><strong>POST</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/diamond/diamonds?category=Lab-Grown%20Diamonds' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/diamond/diamonds?category=Lab-Grown%20Diamonds</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#f44336'>FAIL</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#e8f5e9; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Gemstone List - Valid Request</td>
+            <td style='padding:12px;'><strong>GET</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/gemstone/list' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/gemstone/list</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#4caf50'>PASS</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#e8f5e9; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Gemstone List - With Pagination Parameters</td>
+            <td style='padding:12px;'><strong>GET</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/gemstone/list?page=1&limit=10' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/gemstone/list?page=1&limit=10</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#4caf50'>PASS</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#e8f5e9; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Gemstone List - With Sort Parameter</td>
+            <td style='padding:12px;'><strong>GET</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/gemstone/list?sortBy=priceLowToHigh' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/gemstone/list?sortBy=priceLowToHigh</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#4caf50'>PASS</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#e8f5e9; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Gemstone List - Invalid Endpoint</td>
+            <td style='padding:12px;'><strong>GET</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/gemstone/list-invalid' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/gemstone/list-invalid</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#4caf50'>PASS</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#ffebee; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Gemstone List - POST Method</td>
+            <td style='padding:12px;'><strong>POST</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/gemstone/list' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/gemstone/list</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#f44336'>FAIL</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#e8f5e9; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Diamond Detail - Valid Request</td>
+            <td style='padding:12px;'><strong>GET</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/diamond/detail/l47128?client_id=f6b6ea270a26' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/diamond/detail/l47128?client_id=f6b6ea270a26</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#4caf50'>PASS</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#e8f5e9; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Diamond Detail - Missing Client ID</td>
+            <td style='padding:12px;'><strong>GET</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/diamond/detail/l47128' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/diamond/detail/l47128</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#4caf50'>PASS</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#ffebee; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Diamond Detail - Invalid Diamond ID</td>
+            <td style='padding:12px;'><strong>GET</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/diamond/detail/invalid_id?client_id=f6b6ea270a26' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/diamond/detail/invalid_id?client_id=f6b6ea270a26</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#f44336'>FAIL</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+
+        <tr style='background:#ffebee; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>Diamond Detail - POST Method</td>
+            <td style='padding:12px;'><strong>POST</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='https://storebe.gemsny.uk/diamond/detail/l47128?client_id=f6b6ea270a26' target='_blank' style='color:#1e90ff; text-decoration:none;'>https://storebe.gemsny.uk/diamond/detail/l47128?client_id=f6b6ea270a26</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:#f44336'>FAIL</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'></td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+        </div>
+    </body>
+    </html>
+    

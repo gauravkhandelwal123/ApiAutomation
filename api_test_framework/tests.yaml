@@ -1,51 +1,157 @@
 # tests.yaml – Define API test cases
 
-# Example: Testing a public echo service. Replace with your real API endpoints.
-
-- name: Echo GET request
+# API 1: /review-list
+- name: "Review List - Valid Request"
   method: GET
-  url: https://postman-echo.com/get?foo=bar
+  url: https://storebe.gemsny.uk/review-list?limit=5
   headers: {}
   payload: {}
   expected_status: 200
-  # Optional: JSON path assertions (key: expected value)
-  assertions:
-    args.foo: bar
-
-- name: Echo POST request with JSON body
-  method: POST
-  url: https://postman-echo.com/post
-  headers:
-    Content-Type: application/json
-  payload:
-    hello: world
-  expected_status: 200
-  assertions:
-    json.hello: world
-
-# --- Intentional failure cases for testing ---
-
-- name: "FAIL - Wrong expected status"
-  method: GET
-  url: https://postman-echo.com/get?test=fail
-  headers: {}
-  payload: {}
-  expected_status: 201   # actual is 200, so this should FAIL
   assertions: {}
 
-- name: "FAIL - Wrong assertion value"
+- name: "Review List - Limit 1"
   method: GET
-  url: https://postman-echo.com/get?color=red
+  url: https://storebe.gemsny.uk/review-list?limit=1
   headers: {}
   payload: {}
   expected_status: 200
-  assertions:
-    args.color: blue   # actual is "red", so this should FAIL
+  assertions: {}
 
-- name: "FAIL - Non-existent endpoint"
+- name: "Review List - Invalid Limit Type"
   method: GET
-  url: https://postman-echo.com/this-does-not-exist
+  url: https://storebe.gemsny.uk/review-list?limit=abc
   headers: {}
   payload: {}
-  expected_status: 200   # will get 404
+  expected_status: 500
+  assertions: {}
+
+- name: "Review List - No Limit Parameter"
+  method: GET
+  url: https://storebe.gemsny.uk/review-list
+  headers: {}
+  payload: {}
+  expected_status: 200
+  assertions: {}
+
+- name: "Review List - Invalid HTTP Method (POST)"
+  method: POST
+  url: https://storebe.gemsny.uk/review-list?limit=5
+  headers: {}
+  payload: {}
+  expected_status: 405
+  assertions: {}
+
+# API 2: /diamond/diamonds
+- name: "Diamonds List - Valid Full Parameters"
+  method: GET
+  url: "https://storebe.gemsny.uk/diamond/diamonds?category=Lab-Grown%20Diamonds&client_id=null&shape=&price=&carat=&color=&cut=&clarity=&symmetry=&polish=&depth=&table=&fluorescence=&lwRatio=&certificate=&pair=&mediashipping=&page=1&pageSize=24&sortBy=priceLowToHigh&shippingOptions=exp&settingSku="
+  headers: {}
+  payload: {}
+  expected_status: 200
+  assertions: {}
+
+- name: "Diamonds List - Missing Category"
+  method: GET
+  url: "https://storebe.gemsny.uk/diamond/diamonds?client_id=null&shape=&price=&carat=&color=&cut=&clarity=&symmetry=&polish=&depth=&table=&fluorescence=&lwRatio=&certificate=&pair=&mediashipping=&page=1&pageSize=24&sortBy=priceLowToHigh&shippingOptions=exp&settingSku="
+  headers: {}
+  payload: {}
+  expected_status: 200
+  assertions: {}
+
+- name: "Diamonds List - Invalid Page Size"
+  method: GET
+  url: "https://storebe.gemsny.uk/diamond/diamonds?category=Lab-Grown%20Diamonds&page=1&pageSize=-5"
+  headers: {}
+  payload: {}
+  expected_status: 200
+  assertions: {}
+
+- name: "Diamonds List - Different Sort By"
+  method: GET
+  url: "https://storebe.gemsny.uk/diamond/diamonds?category=Lab-Grown%20Diamonds&page=1&pageSize=24&sortBy=priceHighToLow"
+  headers: {}
+  payload: {}
+  expected_status: 200
+  assertions: {}
+
+- name: "Diamonds List - POST Method"
+  method: POST
+  url: "https://storebe.gemsny.uk/diamond/diamonds?category=Lab-Grown%20Diamonds"
+  headers: {}
+  payload: {}
+  expected_status: 405
+  assertions: {}
+
+# API 3: /gemstone/list
+- name: "Gemstone List - Valid Request"
+  method: GET
+  url: https://storebe.gemsny.uk/gemstone/list
+  headers: {}
+  payload: {}
+  expected_status: 200
+  assertions: {}
+
+- name: "Gemstone List - With Pagination Parameters"
+  method: GET
+  url: https://storebe.gemsny.uk/gemstone/list?page=1&limit=10
+  headers: {}
+  payload: {}
+  expected_status: 200
+  assertions: {}
+
+- name: "Gemstone List - With Sort Parameter"
+  method: GET
+  url: https://storebe.gemsny.uk/gemstone/list?sortBy=priceLowToHigh
+  headers: {}
+  payload: {}
+  expected_status: 200
+  assertions: {}
+
+- name: "Gemstone List - Invalid Endpoint"
+  method: GET
+  url: https://storebe.gemsny.uk/gemstone/list-invalid
+  headers: {}
+  payload: {}
+  expected_status: 404
+  assertions: {}
+
+- name: "Gemstone List - POST Method"
+  method: POST
+  url: https://storebe.gemsny.uk/gemstone/list
+  headers: {}
+  payload: {}
+  expected_status: 405
+  assertions: {}
+
+# API 4: /diamond/detail/l47128
+- name: "Diamond Detail - Valid Request"
+  method: GET
+  url: https://storebe.gemsny.uk/diamond/detail/l47128?client_id=f6b6ea270a26
+  headers: {}
+  payload: {}
+  expected_status: 200
+  assertions: {}
+
+- name: "Diamond Detail - Missing Client ID"
+  method: GET
+  url: https://storebe.gemsny.uk/diamond/detail/l47128
+  headers: {}
+  payload: {}
+  expected_status: 200
+  assertions: {}
+
+- name: "Diamond Detail - Invalid Diamond ID"
+  method: GET
+  url: https://storebe.gemsny.uk/diamond/detail/invalid_id?client_id=f6b6ea270a26
+  headers: {}
+  payload: {}
+  expected_status: 400
+  assertions: {}
+
+- name: "Diamond Detail - POST Method"
+  method: POST
+  url: https://storebe.gemsny.uk/diamond/detail/l47128?client_id=f6b6ea270a26
+  headers: {}
+  payload: {}
+  expected_status: 405
   assertions: {}

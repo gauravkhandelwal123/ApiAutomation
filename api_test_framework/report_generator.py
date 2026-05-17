@@ -27,25 +27,28 @@ def _table_html(results):
     rows = []
     for r in results:
         color = "#4caf50" if r["success"] else "#f44336"
+        bg_color = "#e8f5e9" if r["success"] else "#ffebee"
         status = "PASS" if r["success"] else "FAIL"
         rows.append(f"""
-        <tr style='background:{color}20'>
-            <td style='padding:8px;'>{r['name']}</td>
-            <td style='padding:8px;'>{r['method']}</td>
-            <td style='padding:8px;'>{r['url']}</td>
-            <td style='padding:8px; font-weight:bold; color:{color}'>{status}</td>
-            <td style='padding:8px;'>{r['details'].get('error', '') or ''}</td>
+        <tr style='background:{bg_color}; border-bottom: 1px solid #ddd;'>
+            <td style='padding:12px;'>{r['name']}</td>
+            <td style='padding:12px;'><strong>{r['method']}</strong></td>
+            <td style='padding:12px; word-break: break-all;'>
+                <a href='{r['url']}' target='_blank' style='color:#1e90ff; text-decoration:none;'>{r['url']}</a>
+            </td>
+            <td style='padding:12px; font-weight:bold; color:{color}'>{status}</td>
+            <td style='padding:12px; word-break: break-word; color:#555;'>{r['details'].get('error', '') or ''}</td>
         </tr>
         """)
     # generate HTML table
-    return f"""<table style=\"width:100%; border-collapse:collapse; font-family: 'Segoe UI', Tahoma, sans-serif;\">
+    return f"""<table style=\"width:100%; border-collapse:collapse; font-family: 'Segoe UI', Tahoma, sans-serif; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;\">
         <thead>
-            <tr style='background:#333; color:white;'>
-                <th style='padding:8px; text-align:left;'>Test Name</th>
-                <th style='padding:8px; text-align:left;'>Method</th>
-                <th style='padding:8px; text-align:left;'>URL</th>
-                <th style='padding:8px; text-align:left;'>Result</th>
-                <th style='padding:8px; text-align:left;'>Error / Details</th>
+            <tr style='background:#333; color:white; text-transform: uppercase; font-size: 0.9em;'>
+                <th style='padding:12px; text-align:left; width:20%;'>Test Name</th>
+                <th style='padding:12px; text-align:left; width:8%;'>Method</th>
+                <th style='padding:12px; text-align:left; width:45%;'>URL</th>
+                <th style='padding:12px; text-align:left; width:10%;'>Result</th>
+                <th style='padding:12px; text-align:left; width:17%;'>Error / Details</th>
             </tr>
         </thead>
         <tbody>
@@ -68,8 +71,9 @@ def generate_report(results, config):
         <title>API Test Report – {timestamp}</title>
         <style>
             body {{ background:#f0f2f5; margin:0; padding:20px; font-family:'Segoe UI', Tahoma, sans-serif; }}
-            .container {{ max-width:1200px; margin:auto; background:white; border-radius:8px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }}
-            a {{ color:#1e90ff; }}
+            .container {{ max-width:1400px; margin:auto; background:white; border-radius:8px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }}
+            a:hover {{ text-decoration: underline !important; }}
+            tr:hover {{ filter: brightness(0.95); transition: 0.2s; }}
         </style>
     </head>
     <body>
